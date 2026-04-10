@@ -3,14 +3,14 @@ from population import Population
 
 class PopulationDataManager:
     @staticmethod
-    def sort_by_population(data: list[Population]):
-        return sorted(data, key=lambda x: x.population)
+    def sort_by_year(data: list[Population]):
+        return sorted(data, key=lambda x: x.year)
 
     @staticmethod
     def get_difference(data: list[Population], country = None):
         if not data:
             return None
-        sorted_data = PopulationDataManager.sort_by_population(data)
+        sorted_data = PopulationDataManager.sort_by_year(data)
         differences = []
         for i in range(len(sorted_data)-1):
             if country and sorted_data[i].country != country:
