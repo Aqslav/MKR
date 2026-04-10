@@ -28,7 +28,7 @@ jobs:
       - name: Run tests
         run: |
           pytest -v --html=pytest-report.html --self-contained-html
-
+          
       - name: Lint (PEP8 via flake8)
         run: |
           flake8 . --max-line-length=88 --exclude=.git,__pycache__,.pytest_cache
