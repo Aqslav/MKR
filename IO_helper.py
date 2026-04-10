@@ -14,3 +14,8 @@ class IO_helper:
         with open(path, 'r') as f:
             lines = f.read().split('\n')
             return [IO_helper.parse(line) for line in lines if line]
+    
+    @staticmethod
+    def parse(line):
+        country, year, population = line.split(',')
+        return Population(country, int(year), int(population))
