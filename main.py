@@ -9,8 +9,10 @@ os.chdir(this_folder)
 
 if __name__ == "__main__":
     data = IO_helper.load('population_data.txt')
-    differences = PopulationDataManager.get_difference(data)
-    for diff in differences:
-        print(IO_helper.stringify([diff]))
+    country = input("Enter a country to filter by (or press Enter to include all): ")
+    if country == "":
+        country = None
+    differences = PopulationDataManager.get_difference(data, country)
+    print(IO_helper.stringify(differences))
     IO_helper.save('population_differences.txt', differences)
-    
+    input("Press Enter to exit...")
