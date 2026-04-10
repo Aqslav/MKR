@@ -1,13 +1,13 @@
-from IO_helper import IO_helper
 from population import Population
+
 
 class PopulationDataManager:
     @staticmethod
-    def sort_by_population(data : list[Population]):
+    def sort_by_population(data: list[Population]):
         return sorted(data, key=lambda x: x.population)
-    
+
     @staticmethod
-    def get_difference(data : list[Population], country = None):
+    def get_difference(data: list[Population], country = None):
         if not data:
             return None
         sorted_data = PopulationDataManager.sort_by_population(data)
