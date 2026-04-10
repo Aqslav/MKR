@@ -7,7 +7,7 @@ import pytest
 @pytest.mark.parametrize("data, expected", [
     ([Population("CountryA", 2020, 1000000)], "CountryA,2020,1000000"),
     ([Population("CountryB", 2019, 500000), Population("CountryC", 2021, 200000)], 
-     "CountryB,2019,500000\nCountryC,2021,200000"),
+    "CountryB,2019,500000\nCountryC,2021,200000"),
     ([], "")
 ])
 def test_stringify(data, expected):
@@ -25,6 +25,7 @@ def test_parse(input, expected):
     assert parsed.year == expected.year
     assert parsed.population == expected.population
 
+
 @pytest.fixture
 def sample_data():
     return [
@@ -33,11 +34,13 @@ def sample_data():
         Population("CountryC", 2021, 200000)
     ]
 
+
 def test_sort_by_year(sample_data):
     sorted_data = PopulationDataManager.sort_by_year(sample_data)
     assert sorted_data[0].year == 2019
     assert sorted_data[1].year == 2020
     assert sorted_data[2].year == 2021
+
 
 def test_get_difference(sample_data):
     differences = PopulationDataManager.get_difference(sample_data)

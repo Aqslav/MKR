@@ -7,11 +7,12 @@ class PopulationDataManager:
         return sorted(data, key=lambda x: x.year)
 
     @staticmethod
-    def get_difference(data: list[Population], country = None):
+    def get_difference(data: list[Population], country=None):
         if not data:
             return None
         sorted_data = PopulationDataManager.sort_by_year(data)
-        sorted_data = [pop for pop in sorted_data if country is None or pop.country == country]
+        sorted_data = [pop for pop in sorted_data 
+                       if country is None or pop.country == country]
         differences = []
         for i in range(len(sorted_data)-1):
             diff = sorted_data[i+1].population - sorted_data[i].population

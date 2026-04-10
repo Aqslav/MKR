@@ -1,5 +1,4 @@
 from IO_helper import IO_helper
-from population import Population
 from get_population import PopulationDataManager
 import os
 
