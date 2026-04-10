@@ -6,8 +6,8 @@ import pytest
 
 @pytest.mark.parametrize("data, expected", [
     ([Population("CountryA", 2020, 1000000)], "CountryA,2020,1000000"),
-    ([Population("CountryB", 2019, 500000), Population("CountryC", 2021, 200000)], 
-    "CountryB,2019,500000\nCountryC,2021,200000"),
+    ([Population("CountryB", 2019, 500000), Population("CountryC", 2021, 200000)],
+     "CountryB,2019,500000\nCountryC,2021,200000"),
     ([], "")
 ])
 def test_stringify(data, expected):

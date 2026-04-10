@@ -11,10 +11,11 @@ class PopulationDataManager:
         if not data:
             return None
         sorted_data = PopulationDataManager.sort_by_year(data)
-        sorted_data = [pop for pop in sorted_data 
+        sorted_data = [pop for pop in sorted_data
                        if country is None or pop.country == country]
         differences = []
         for i in range(len(sorted_data)-1):
             diff = sorted_data[i+1].population - sorted_data[i].population
-            differences.append(Population(sorted_data[i].country, sorted_data[i].year, diff))
+            popul = Population(sorted_data[i].country, sorted_data[i].year, diff)
+            differences.append(popul)
         return differences
