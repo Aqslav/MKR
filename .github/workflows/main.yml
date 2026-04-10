@@ -27,7 +27,7 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest -v ... ; code=$?; if [ $code -eq 5 ]; then exit 1; fi; exit $code
+          pytest -v --html=pytest-report.html --self-contained-html
           
       - name: Lint (PEP8 via flake8)
         run: |
