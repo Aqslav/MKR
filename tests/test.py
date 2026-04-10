@@ -10,3 +10,10 @@ import pytest
 def test_stringify(data, expected):
     assert IO_helper.stringify(data) == expected
 
+@pytest.mark.parametrize("input, expected", [
+    ("CountryA,2020,1000000", Population("CountryA", 2020, 1000000)),
+    ("CountryB,2019,500000", Population("CountryB", 2019, 500000)),
+    ("CountryC,2021,200000", Population("CountryC", 2021, 200000))
+])
+def test_parse(input, expected):
+    assert IO_helper.parse(input) == expected
